@@ -13,14 +13,14 @@ public class register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     String name,email,pass;
     private Connection con = null; //Database objects 
-    //³s±µobject 
+    //é€£æ¥object 
     private Statement stat = null; 
-    //°õ¦æ,¶Ç¤J¤§sql¬°§¹¾ã¦r¦ê 
+    //åŸ·è¡Œ,å‚³å…¥ä¹‹sqlç‚ºå®Œæ•´å­—ä¸² 
     private ResultSet rs = null; 
-    //µ²ªG¶° 
+    //çµæœé›† 
     private PreparedStatement pst = null; 
-    //°õ¦æ,¶Ç¤J¤§sql¬°¹wÀx¤§¦r¥Ó,»İ­n¶Ç¤JÅÜ¼Æ¤§¦ì¸m 
-    //¥ı§Q¥Î?¨Ó°µ¼Ğ¥Ü 
+    //åŸ·è¡Œ,å‚³å…¥ä¹‹sqlç‚ºé å„²ä¹‹å­—ç”³,éœ€è¦å‚³å…¥è®Šæ•¸ä¹‹ä½ç½® 
+    //å…ˆåˆ©ç”¨?ä¾†åšæ¨™ç¤º 
     
     private String dropdbSQL = "DROP TABLE user "; 
     
@@ -41,28 +41,28 @@ public class register extends HttpServlet {
         // TODO Auto-generated constructor stub
         try { 
             Class.forName("com.mysql.jdbc.Driver"); 
-            //µù¥Udriver 
+            //è¨»å†Šdriver 
             con = DriverManager.getConnection( 
             "jdbc:mysql://140.134.26.84:3308/tomcat?useUnicode=true&characterEncoding=Big5", 
             "spm","SPMtomcat105"); 
-            //¨ú±oconnection
+            //å–å¾—connection
 
       //jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=Big5
-      //localhost¬O¥D¾÷¦W,test¬Odatabase¦W
-      //useUnicode=true&characterEncoding=Big5¨Ï¥Îªº½s½X 
+      //localhostæ˜¯ä¸»æ©Ÿå,testæ˜¯databaseå
+      //useUnicode=true&characterEncoding=Big5ä½¿ç”¨çš„ç·¨ç¢¼ 
             
           } 
           catch(ClassNotFoundException e) 
           { 
             System.out.println("DriverClassNotFound :"+e.toString()); 
-          }//¦³¥i¯à·|²£¥Ísqlexception 
+          }//æœ‰å¯èƒ½æœƒç”¢ç”Ÿsqlexception 
           catch(SQLException x) { 
             System.out.println("Exception :"+x.toString()); 
           } 
           
     }
-  //«Ø¥ßtableªº¤è¦¡ 
-    //¥i¥H¬İ¬İStatementªº¨Ï¥Î¤è¦¡ 
+  //å»ºç«‹tableçš„æ–¹å¼ 
+    //å¯ä»¥çœ‹çœ‹Statementçš„ä½¿ç”¨æ–¹å¼ 
     public void createTable() 
     { 
       try 
@@ -79,8 +79,8 @@ public class register extends HttpServlet {
         Close(); 
       } 
     } 
-    //·s¼W¸ê®Æ 
-    //¥i¥H¬İ¬İPrepareStatementªº¨Ï¥Î¤è¦¡ 
+    //æ–°å¢è³‡æ–™ 
+    //å¯ä»¥çœ‹çœ‹PrepareStatementçš„ä½¿ç”¨æ–¹å¼ 
     public void insertTable( String email,String name,String passwd) 
     { 
       try 
@@ -101,8 +101,8 @@ public class register extends HttpServlet {
         Close(); 
       } 
     } 
-    //§R°£Table, 
-    //¸ò«Ø¥ßtable«Ü¹³ 
+    //åˆªé™¤Table, 
+    //è·Ÿå»ºç«‹tableå¾ˆåƒ 
     public void dropTable() 
     { 
       try 
@@ -119,8 +119,8 @@ public class register extends HttpServlet {
         Close(); 
       } 
     } 
-    //¬d¸ß¸ê®Æ 
-    //¥i¥H¬İ¬İ¦^¶Çµ²ªG¶°¤Î¨ú±o¸ê®Æ¤è¦¡ 
+    //æŸ¥è©¢è³‡æ–™ 
+    //å¯ä»¥çœ‹çœ‹å›å‚³çµæœé›†åŠå–å¾—è³‡æ–™æ–¹å¼ 
     public void SelectTable() 
     { 
       try 
@@ -143,8 +143,8 @@ public class register extends HttpServlet {
         Close(); 
       } 
     } 
-    //§¹¾ã¨Ï¥Î§¹¸ê®Æ®w«á,°O±o­nÃö³¬©Ò¦³Object 
-    //§_«h¦bµ¥«İTimeout®É,¥i¯à·|¦³Connection poorªºª¬ªp 
+    //å®Œæ•´ä½¿ç”¨å®Œè³‡æ–™åº«å¾Œ,è¨˜å¾—è¦é—œé–‰æ‰€æœ‰Object 
+    //å¦å‰‡åœ¨ç­‰å¾…Timeoutæ™‚,å¯èƒ½æœƒæœ‰Connection poorçš„ç‹€æ³ 
     private void Close() 
     { 
       try 
@@ -199,7 +199,7 @@ public class register extends HttpServlet {
 		     
 		    test.insertTable(email, name,pass); 
 		    System.out.println("inserts!!");     
-		response.sendRedirect("register.jsp");
+		response.sendRedirect("success.jsp");
 	}
 
 }

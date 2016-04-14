@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=BIG5">
-<title>Insert title here</title>
-</head>
-<body>
-
-   <h1>hello word</h1>
-</body>
-</html>
+<t:genericpage>
+    <jsp:attribute name="mycontent">
+      <form action="register" method="POST">
+		Name: <input type="text" name="name">
+		<br />
+		Email: <input type="text" name="email" />
+		<br />
+		Pasword: <input type="password" name="pass" />
+		<input type="submit" value="Submit" />
+		</form>
+    </jsp:attribute>
+</t:genericpage>

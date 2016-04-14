@@ -1,13 +1,8 @@
-<html>
-<body>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-<form action="register" method="POST">
-Name: <input type="text" name="name">
-<br />
-Email: <input type="text" name="email" />
-<br />
-Pasword: <input type="password" name="pass" />
-<input type="submit" value="Submit" />
-</form>
-</body>
-</html>
+<t:genericpage>
+    <jsp:attribute name="mycontent">
+      <h1>Welcome</h1>
+    </jsp:attribute>
+</t:genericpage>
