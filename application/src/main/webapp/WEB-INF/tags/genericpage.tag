@@ -56,13 +56,13 @@
                 {
                     text: "會員",
                     items: [
-                        { text: "登入", url:"/application/index.jsp" },
+                        { text: "登入", url:"/application/logIn.jsp" },
                         { text: "註冊", url:"/application/register.jsp" }
                     ]
                 }
             ]
         });
     </script>
-	<jsp:invoke fragment="mystyle"/>
+	<jsp:invoke fragment="myendscript"/>
   </body>
 </html>
