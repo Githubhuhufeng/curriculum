@@ -44,17 +44,17 @@
 	 </script>
     </jsp:attribute>
     <jsp:attribute name="mycontent">
-       <form name="form1" method="post" action="loginchk" onsubmit="return chkinput()">
+       <form name="form1" method="post" action="login" onsubmit="return chkinput()">
 	   <p align="center">
-	   		username
+	   		User Name:
 		        <input name="id" type="text" size="20">                
 		        <br>
-			password
+			Password
 				<input name="password" type="password" size="20">
 			    <br>
 			    <br>
 		    <input type="submit" name="Submit" value="login">
-	      </p>
+	  </p>
 	 </form>
     </jsp:attribute>
     <jsp:attribute name="myendscript">

@@ -43,7 +43,7 @@ public class register extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver"); 
             //註冊driver 
             con = DriverManager.getConnection( 
-            "jdbc:mysql://140.134.26.84:3308/tomcat?useUnicode=true&characterEncoding=Big5", 
+            "jdbc:mysql://140.134.26.84:3308/tomcat?useUnicode=true&characterEncoding=utf-8", 
             "spm","SPMtomcat105"); 
             //取得connection
 
