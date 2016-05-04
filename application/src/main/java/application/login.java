@@ -139,7 +139,7 @@ public class login extends HttpServlet
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userId", userId);
 			System.out.println(userId);
-			response.sendRedirect("viewTimeTable");
+			response.sendRedirect("viewTimeTable.jsp");
 		}
 		else
 			response.sendRedirect("index.jsp");

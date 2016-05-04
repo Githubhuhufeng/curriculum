@@ -25,7 +25,7 @@
         {
             max-width:1000px;
         }
-        .k-link
+        .k-menu .k-item
         {
         	background-color:#991e21;
         }
