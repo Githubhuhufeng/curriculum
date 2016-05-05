@@ -1,7 +1,8 @@
-package application;
+
 
 import org.junit.Test;
 
+import application.login;
 import junit.framework.TestCase;
 
 public class loginTest extends TestCase 
