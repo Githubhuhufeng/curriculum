@@ -1,5 +1,4 @@
-
-
+import org.junit.Assert;
 import org.junit.Test;
 
 import application.login;
@@ -13,7 +12,7 @@ public class loginTest extends TestCase
 		login testLogin = new login();
 		
 		//check for equality
-		assertEquals(testLogin.checkUser("xxxxx","xxxx") , "");
+		Assert.assertEquals(testLogin.checkUser("xxxxx","xxxx") , "");
 		//assertEquals(testLogin.checkUser("1","1") , "9");
 		//assertEquals(testLogin.checkUser("1","1") , "");
 		
