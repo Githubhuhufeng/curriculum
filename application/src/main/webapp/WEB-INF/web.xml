@@ -23,6 +23,14 @@
   	<description></description>
   	<servlet-class>application.viewTimeTable</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ClassController</servlet-name>
+  	<display-name>ClassController</display-name>
+  	<description>ClassCRUD</description>
+  	<servlet-class>application.ClassController</servlet-class>
+  </servlet>
+  
+  
   
   <servlet-mapping>
   	<servlet-name>register</servlet-name>
@@ -36,5 +44,10 @@
   	<servlet-name>viewTimeTable</servlet-name>
   	<url-pattern>/viewTimeTable</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ClassController</servlet-name>
+  	<url-pattern>/class</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>

@@ -1,0 +1,7 @@
+Servers/Tomcat v7.0 Server at localhost-config/server.xml
+application/.classpath
+application/.settings/org.eclipse.wst.common.project.facet.core.xml
+application/target/classes/.gitignore
+application/target/m2e-wtp/web-resources/.gitignore
+application/target/test-classes/loginTest.class
+application/target/test-classes/plusTest.class
