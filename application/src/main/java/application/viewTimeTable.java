@@ -203,6 +203,7 @@ public class viewTimeTable extends HttpServlet
 	    response.setContentType("application/json");
 	    response.setCharacterEncoding("UTF-8");
 	    response.getWriter().write(json);
+	    System.out.println("doGet end"); 
 	}
 
 	/**

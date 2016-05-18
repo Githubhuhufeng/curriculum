@@ -127,7 +127,7 @@ public class login extends HttpServlet
 	{
 		// TODO Auto-generated method stub
 		// doGet(request, response);
-		
+		System.out.println("doPost start");
 		pass =request.getParameter("password");
 		userName =request.getParameter("id");
 		System.out.println("pass:"+pass);
@@ -143,6 +143,7 @@ public class login extends HttpServlet
 		}
 		else
 			response.sendRedirect("index.jsp");
+		System.out.println("doPost End");
 	}
 
 }

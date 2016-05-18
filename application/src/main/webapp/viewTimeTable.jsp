@@ -24,6 +24,10 @@
 		{
 			display:none;
 		}
+		.k-scheduler
+		{
+		height:100% !important;
+		}
 	  </style>
     </jsp:attribute>
 	<jsp:attribute name="myscript">
