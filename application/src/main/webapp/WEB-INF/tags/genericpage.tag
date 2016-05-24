@@ -58,7 +58,8 @@
                     items: [
                         { text: "登入", url:"/application/logIn.jsp" },
                         { text: "註冊", url:"/application/register.jsp" },
-                        { text: "新增課程", url:"/application/classForm.jsp" }
+                        { text: "新增課程", url:"/application/classForm.jsp" },
+                        { text: "老師註冊", url:"/application/Teachers.jsp" }
                     ]
                 }
             ]
