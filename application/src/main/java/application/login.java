@@ -7,7 +7,7 @@ import java.sql.*;
 /**
  * Servlet implementation class login
  */
-public class login extends HttpServlet 
+public class Login extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 	private String userName,pass;
@@ -22,7 +22,7 @@ public class login extends HttpServlet
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public login() 
+    public Login() 
     {
 		super();
 		// TODO Auto-generated constructor stub
@@ -56,13 +56,13 @@ public class login extends HttpServlet
     	String userId = "";
 		try 
 		{ 
-			String selectSQL =	"SELECT "+ 
-									"id "+
-								"FROM "+
-									"user "+
-								"WHERE "+
-									"name='"+userName+"' and "+
-									"encrypted_password=password('"+pass+"')";
+			final String selectSQL =	"SELECT "+ 
+											"id "+
+										"FROM "+
+											"user "+
+										"WHERE "+
+											"name='"+userName+"' and "+
+											"encrypted_password=password('"+pass+"')";
 			stat = con.createStatement(); 
 			rs = stat.executeQuery(selectSQL); 
 			
@@ -77,13 +77,13 @@ public class login extends HttpServlet
 		} 
 		finally 
 		{ 
-			Close(); 
+			close(); 
 		} 
 		return userId;
 	} 
     //完整使用完資料庫後,記得要關閉所有Object 
     //否則在等待Timeout時,可能會有Connection poor的狀況 
-	private void Close() 
+	private void close() 
 	{ 
 		try 
 		{ 
@@ -134,7 +134,7 @@ public class login extends HttpServlet
 		System.out.println("userName:"+userName);
 	
 		String userId = checkUser(userName,pass);
-		if (userId!="")
+		if (!userId.equals(""))
 		{
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userId", userId);
@@ -142,7 +142,9 @@ public class login extends HttpServlet
 			response.sendRedirect("viewTimeTable.jsp");
 		}
 		else
+		{
 			response.sendRedirect("index.jsp");
+		}
 		System.out.println("doPost End");
 	}
 

@@ -26,7 +26,7 @@
 		}
 		.k-scheduler
 		{
-		height:100% !important;
+		//height:100% !important;
 		}
 	  </style>
     </jsp:attribute>
@@ -59,9 +59,8 @@
 					   $scope.schedulerOptions = {
 						   //date: new Date("2013/6/13"),
 						   //startTime: new Date("2013/6/13 07:00 AM"),
-						   height: 600,
+						   //height: 100%
 						   views: [
-							   
 							   { type: "week", selected: true }
 						   ],
 						   timezone: "Asia/Taipei",
@@ -73,7 +72,7 @@
 									   dataType: "json"
 								   },
 								   update: {
-									   url: "data/data.json",
+									   url: "updateTimeTable",
 									   dataType: "json"
 								   },
 								   create: {

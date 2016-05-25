@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Servlet implementation class login
  */
-public class viewTimeTable extends HttpServlet 
+public class ViewTimeTable extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 	private String userName,pass;
@@ -34,7 +34,7 @@ public class viewTimeTable extends HttpServlet
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public viewTimeTable() 
+    public ViewTimeTable() 
     {
 		super();
 		// TODO Auto-generated constructor stub
@@ -143,14 +143,14 @@ public class viewTimeTable extends HttpServlet
 		} 
 		finally 
 		{ 
-			Close(); 
+			close(); 
 		} 
 		System.out.println("getTimeTable end"); 
 		return timeTable;
 	} 
     //完整使用完資料庫後,記得要關閉所有Object 
     //否則在等待Timeout時,可能會有Connection poor的狀況 
-	private void Close() 
+	private void close() 
 	{ 
 		try 
 		{ 

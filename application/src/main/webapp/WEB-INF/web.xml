@@ -9,32 +9,32 @@
   	<servlet-name>register</servlet-name>
   	<display-name>register</display-name>
   	<description></description>
-  	<servlet-class>application.register</servlet-class>
+  	<servlet-class>application.Register</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>login</servlet-name>
   	<display-name>login</display-name>
   	<description></description>
-  	<servlet-class>application.login</servlet-class>
+  	<servlet-class>application.Login</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>viewTimeTable</servlet-name>
   	<display-name>viewTimeTable</display-name>
   	<description></description>
-  	<servlet-class>application.viewTimeTable</servlet-class>
+  	<servlet-class>application.ViewTimeTable</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>ClassController</servlet-name>
-  	<display-name>ClassController</display-name>
-  	<description></description>
-  	<servlet-class>application.ClassController</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>Teachers</servlet-name>
-  	<display-name>Teachers</display-name>
-  	<description></description>
-  	<servlet-class>application.Teachers</servlet-class>
-  </servlet>
+		<servlet-name>ClassController</servlet-name>
+		<display-name>ClassController</display-name>
+		<description></description>
+		<servlet-class>application.ClassController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Teachers</servlet-name>
+		<display-name>Teachers</display-name>
+		<description></description>
+		<servlet-class>application.Teachers</servlet-class>
+	</servlet>
   
   <servlet-mapping>
   	<servlet-name>register</servlet-name>
@@ -56,5 +56,4 @@
   	<servlet-name>Teachers</servlet-name>
   	<url-pattern>/Teachers</url-pattern>
   </servlet-mapping>
-
 </web-app>

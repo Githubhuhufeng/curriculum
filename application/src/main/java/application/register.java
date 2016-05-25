@@ -9,9 +9,9 @@ import java.sql.*;
 /**
  * Servlet implementation class register
  */
-public class register extends HttpServlet {
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    String name,email,pass;
+	private String name,email,pass;
     private Connection con = null; //Database objects 
     //連接object 
     private Statement stat = null; 
@@ -36,7 +36,7 @@ public class register extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public register() {
+    public Register() {
         super();
         // TODO Auto-generated constructor stub
         try { 
@@ -76,7 +76,7 @@ public class register extends HttpServlet {
       } 
       finally 
       { 
-        Close(); 
+        close(); 
       } 
     } 
     //新增資料 
@@ -98,7 +98,7 @@ public class register extends HttpServlet {
       } 
       finally 
       { 
-        Close(); 
+        close(); 
       } 
     } 
     //刪除Table, 
@@ -116,12 +116,12 @@ public class register extends HttpServlet {
       } 
       finally 
       { 
-        Close(); 
+        close(); 
       } 
     } 
     //查詢資料 
     //可以看看回傳結果集及取得資料方式 
-    public void SelectTable() 
+    public void selectTable() 
     { 
       try 
       { 
@@ -140,12 +140,12 @@ public class register extends HttpServlet {
       } 
       finally 
       { 
-        Close(); 
+        close(); 
       } 
     } 
     //完整使用完資料庫後,記得要關閉所有Object 
     //否則在等待Timeout時,可能會有Connection poor的狀況 
-    private void Close() 
+    private void close() 
     { 
       try 
       { 
@@ -193,12 +193,12 @@ public class register extends HttpServlet {
 		pass = request.getParameter("pass");
 		System.out.println("pass:"+pass);
 		
-		register test = new register(); 
+		Register test = new Register(); 
 		System.out.println("test!!");
 		     
 		     
-		    test.insertTable(email, name,pass); 
-		    System.out.println("inserts!!");     
+		test.insertTable(email, name,pass); 
+		System.out.println("inserts!!");     
 		response.sendRedirect("success.jsp");
 	}
 

@@ -1,15 +1,15 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import application.login;
+import application.Login;
 import junit.framework.TestCase;
 
-public class plusTest extends TestCase 
+public class PlusTest extends TestCase 
 {
 	@Test
 	public void testPlus() 
 	{
-		login testLogin = new login();
+		Login testLogin = new Login();
 		Assert.assertEquals(testLogin.checkUser("shengwei","zxcvzxcv") , "");
 	}
 }
