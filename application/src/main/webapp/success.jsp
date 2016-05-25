@@ -3,6 +3,6 @@
 
 <t:genericpage>
     <jsp:attribute name="mycontent">
-      <h1>Register Done!</h1>
+      <h1>Insert Done!</h1>
     </jsp:attribute>
 </t:genericpage>
