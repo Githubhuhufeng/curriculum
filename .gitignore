@@ -1,3 +1,7 @@
+.metadata/
+RemoteSystemsTempFiles/
+.recommenders/
+.idea/
 Servers/Tomcat v7.0 Server at localhost-config/server.xml
 application/.classpath
 application/.settings/org.eclipse.wst.common.project.facet.core.xml
