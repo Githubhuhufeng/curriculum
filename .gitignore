@@ -9,3 +9,7 @@ application/target/classes/.gitignore
 application/target/m2e-wtp/web-resources/.gitignore
 application/target/test-classes/loginTest.class
 application/target/test-classes/plusTest.class
+.settings
+application/target
+jmeter.log
+application/bin
