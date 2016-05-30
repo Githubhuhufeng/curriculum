@@ -58,14 +58,14 @@
                     text: "課表",
                     items: [
                         { text: "我的課表", url:"/application/viewTimeTable.jsp" },
-                        { text: "新增課程到課表", url:"/application/addClass.jsp" }
+                        { text: "編輯我的課表", url:"/application/editTimeTable" }
                     ]
                 },
                 {
                     text: "課程",
                     items: [
 						{ text: "新增開課老師", url:"/application/teachers.jsp" },
-                        { text: "新增課程", url:"/application/classForm.jsp" },
+                        { text: "新增課程", url:"/application/classForm" },
                         { text: "開設課程列表", url:"/application/classList" }
                     ]
                 },
