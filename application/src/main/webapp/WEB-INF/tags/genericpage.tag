@@ -6,6 +6,7 @@
 <html>
 	<head>
 	<meta charset="utf-8">
+	 <title>Curriculum-SPM</title>
     <link rel="shortcut icon" href="/image/favicon.ico" />
     <link href="kendoui/content/shared/styles/examples-offline.css" rel="stylesheet" />
     <link href="kendoui/styles/kendo.common.min.css" rel="stylesheet" />
@@ -54,11 +55,25 @@
                     text: "Home", url:"/application/index.jsp"
                 },
                 {
+                    text: "課表",
+                    items: [
+                        { text: "我的課表", url:"/application/viewTimeTable.jsp" },
+                        { text: "新增課程到課表", url:"/application/addClass.jsp" }
+                    ]
+                },
+                {
+                    text: "課程",
+                    items: [
+						{ text: "新增開課老師", url:"/application/teachers.jsp" },
+                        { text: "新增課程", url:"/application/classForm.jsp" },
+                        { text: "開設課程列表", url:"/application/classList" }
+                    ]
+                },
+                {
                     text: "會員",
                     items: [
                         { text: "登入", url:"/application/logIn.jsp" },
-                        { text: "註冊", url:"/application/register.jsp" },
-                        { text: "新增老師", url:"/application/classForm.jsp" }
+                        { text: "註冊", url:"/application/register.jsp" }
                     ]
                 }
             ]
