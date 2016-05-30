@@ -3,13 +3,25 @@
 
 <t:genericpage>
     <jsp:attribute name="mycontent">
+		<h1>註冊新帳號</h1>
       <form action="register" method="POST">
-		Name: <input type="text" name="name">
-		<br />
-		Email: <input type="text" name="email" />
-		<br />
-		Pasword: <input type="password" name="pass" />
-		<input type="submit" value="Submit" />
+      	<table align="center" cellpadding="5px">
+	      	<tr>
+	      		<td>Name: </td>
+	      		<td><input type="text" name="name"></td>
+	      	</tr>
+	      	<tr>
+	      		<td>Email: </td>
+	      		<td><input type="text" name="email" /></td>
+	      	</tr>
+	      	<tr>
+	      		<td>Pasword: </td>
+	      		<td><input type="password" name="pass" /></td>
+	      	</tr>
+	      	<tr>
+	      		<td colspan="2" align="right"><input type="submit" value="Submit" /></td>
+	      	</tr>
+      	</table>
 		</form>
     </jsp:attribute>
 </t:genericpage>

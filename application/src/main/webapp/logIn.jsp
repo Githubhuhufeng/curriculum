@@ -44,17 +44,21 @@
 	 </script>
     </jsp:attribute>
     <jsp:attribute name="mycontent">
+		<h1>登入</h1>
        <form name="form1" method="post" action="login" onsubmit="return chkinput()">
-	   <p align="center">
-	   		User Name:
-		        <input name="id" type="text" size="20">                
-		        <br>
-			Password
-				<input name="password" type="password" size="20">
-			    <br>
-			    <br>
-		    <input type="submit" name="Submit" value="login">
-	  </p>
+       <table align="center" cellpadding="5px">
+		<tr>
+			<td>User Name:</td>
+	   		<td><input name="id" type="text"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+		   	<td><input name="password" type="password" size="20"></td>
+		</tr>
+	   	<tr>
+		   	<td colspan="2" align="right"> <input type="submit" name="Submit" value="login"></td>
+	   	</tr>
+	  </table>
 	 </form>
     </jsp:attribute>
     <jsp:attribute name="myendscript">
