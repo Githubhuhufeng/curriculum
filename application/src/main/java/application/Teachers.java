@@ -88,6 +88,7 @@ public class Teachers extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPost!!");     
 		String name, email, id;
 		id    = request.getParameter("id");
 		name  = request.getParameter("name");
@@ -99,6 +100,6 @@ public class Teachers extends HttpServlet {
 
 		test.insertTable(id, name,email); 
 		System.out.println("inserts!!");     
-		response.sendRedirect("success.jsp");
+		response.sendRedirect("classForm.jsp");
 	}
 }

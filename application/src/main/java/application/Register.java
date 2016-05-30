@@ -103,7 +103,7 @@ public class Register extends HttpServlet {
 
 		test.insertTable(email, name, pass); 
 		System.out.println("inserts!!");     
-		response.sendRedirect("success.jsp");
+		response.sendRedirect("logIn.jsp");
 	}
 
 }

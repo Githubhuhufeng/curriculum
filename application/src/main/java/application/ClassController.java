@@ -71,6 +71,7 @@ public class ClassController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doPost!!");    
 		String name, teacher, location, credit, dept;
 		name 	 = request.getParameter("name");
 		teacher  = request.getParameter("teacher");
@@ -81,7 +82,7 @@ public class ClassController extends HttpServlet {
 		ClassController classCon = new ClassController(); 
 		classCon.insertTable(name, teacher, location, credit, dept); 
 	    System.out.println("inserts!!");     
-		response.sendRedirect("success.jsp");
+		response.sendRedirect("classList");
 	}
 
 }
