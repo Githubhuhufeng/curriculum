@@ -66,7 +66,7 @@ public class ViewTimeTable extends HttpServlet
     public TimeTableObj[] getTimeTable(String userId) 
     { 
     	System.out.println("getTimeTable start"); 
-    	TimeTableObj[] timeTable =null;
+    	List<TimeTableObj> timeTable =null;
 		try 
 		{ 
 			String selectSQL =	"SELECT "+ 
@@ -91,15 +91,20 @@ public class ViewTimeTable extends HttpServlet
 									"ClassId,start_time";
 			stat = con.createStatement(); 
 			rs = stat.executeQuery(selectSQL); 
-			//System.out.println(selectSQL);
+			System.out.println(selectSQL);
 			int rowcount =0;
 			if (rs.last()) 
 			{
 				  rowcount = rs.getRow();
 				  rs.beforeFirst(); // not rs.first() because the rs.next() below will move on, missing the first element
 			}
-			timeTable = new TimeTableObj[rowcount];
+			timeTable = new ArrayList<TimeTableObj>();
 			int count =0;
+			boolean isFirst = true;
+			String nowClassId = "";
+			String nowEndTime = "";
+			String nowWeek ="";
+			TimeTableObj tempList = null;
 			while(rs.next()) 
 			{ 
 				Calendar today = Calendar.getInstance();
@@ -113,10 +118,10 @@ public class ViewTimeTable extends HttpServlet
 				//7 星期六		6
 				//1 星期日		0
 				dayOfWeek -= 1;
-				if(dayOfWeek==0)
-					dayOfWeek=7;
+				//if(dayOfWeek == 0)
+				//	dayOfWeek = 7;
 				String diffString = rs.getString("week");
-				int diff = dayOfWeek - Integer.parseInt(diffString);
+				int diff = Integer.parseInt(diffString)-dayOfWeek;
 				
 				today.add(today.DATE,diff);
 				Date date=new Date();//取时间
@@ -124,18 +129,37 @@ public class ViewTimeTable extends HttpServlet
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String dateString = formatter.format(date);
 				
-				
-				TimeTableObj tempList = new TimeTableObj();
-				tempList.TaskID = count+"";
-				tempList.OwnerID = rs.getString("ClassId");
-				tempList.Title = rs.getString("ClassName");
-				tempList.Description = rs.getString("ClassLocation");
-				tempList.Start = dateString+" "+rs.getString("start_time");
-				tempList.End = dateString+" "+rs.getString("end_time");
+				if(nowClassId.equals(rs.getString("ClassId")) && nowEndTime.equals(dateString+" "+rs.getString("start_time")))
+				{
+					tempList.End = dateString+" "+rs.getString("end_time");
+				}
+				else
+				{
+					if(isFirst)
+					{
+						tempList = new TimeTableObj();
+						isFirst = false;
+					}
+					else
+					{
+						timeTable.add(tempList);
+						count++;
+						tempList = new TimeTableObj();
+					}
+					
+					tempList.TaskID = count+"";
+					tempList.OwnerID = rs.getString("ClassId");
+					tempList.Title = rs.getString("ClassName");
+					tempList.Description = rs.getString("ClassLocation");
+					tempList.Start = dateString+" "+rs.getString("start_time");
+					tempList.End = dateString+" "+rs.getString("end_time");
+				}
 
-				timeTable[count] = tempList;
-				count++;
-			} 
+				nowClassId = rs.getString("ClassId");
+				nowEndTime = dateString+" "+rs.getString("end_time");
+			}
+			if(tempList!=null)
+				timeTable.add(tempList);
 		} 
 		catch(SQLException e) 
 		{ 
@@ -146,7 +170,7 @@ public class ViewTimeTable extends HttpServlet
 			close(); 
 		} 
 		System.out.println("getTimeTable end"); 
-		return timeTable;
+		return (timeTable.toArray(new TimeTableObj[timeTable.size()]));
 	} 
     //完整使用完資料庫後,記得要關閉所有Object 
     //否則在等待Timeout時,可能會有Connection poor的狀況 
@@ -185,25 +209,23 @@ public class ViewTimeTable extends HttpServlet
 	{
 		System.out.println("doGet start"); 
 		String userId ="";
-		Object someObject =null;
+		Object someObject = new Object[0];
 		try
 		{
 			HttpSession session = request.getSession(true);
 			userId = session.getAttribute("userId").toString();
-			
+			someObject = getTimeTable(userId);
 		}
 		catch(Exception ex)
 		{
 			
 		}
-		someObject = getTimeTable(userId);
-		
-		
 		String json = new Gson().toJson(someObject);
 	    response.setContentType("application/json");
 	    response.setCharacterEncoding("UTF-8");
 	    response.getWriter().write(json);
 	    System.out.println("doGet end"); 
+		
 	}
 
 	/**
@@ -229,4 +251,5 @@ class TimeTableObj
 	String RecurrenceID = null;
 	String RecurrenceException = null;
 	boolean IsAllDay = false;
+	boolean IsClass = true;
 }

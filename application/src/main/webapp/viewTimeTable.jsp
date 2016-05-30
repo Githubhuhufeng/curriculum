@@ -24,9 +24,13 @@
 		{
 			display:none;
 		}
-		.k-scheduler
+		.k-event
 		{
-		//height:100% !important;
+			text-align:center;
+		}
+		.custom-event
+		{
+			line-height: 28px;
 		}
 	  </style>
     </jsp:attribute>
@@ -43,9 +47,9 @@
     <jsp:attribute name="mycontent">
       <div id="example" ng-app="KendoDemos">
 		  <div ng-controller="MyCtrl">
-			  <div kendo-scheduler k-options="schedulerOptions">
-				  <span k-event-template class='custom-event'>{{dataItem.title}}</span>
-				  <div k-all-day-event-template class='custom-all-day-event'>{{dataItem.title}}</div>
+			  <div kendo-scheduler k-options="schedulerOptions" class="my-custom-event-box">
+				  <span k-event-template class='custom-event'>{{dataItem.title}}<br />{{dataItem.description}}</span>
+				  <div k-all-day-event-template class='custom-all-day-event'>{{dataItem.title}}<br />{{dataItem.description}}</div>
 			  </div>
 		  </div>
 	  </div>
@@ -60,6 +64,26 @@
 						   //date: new Date("2013/6/13"),
 						   //startTime: new Date("2013/6/13 07:00 AM"),
 						   //height: 100%
+						   /*
+							resize: function(e) {
+								e.preventDefault();
+					        },
+					        resizeEnd: function(e) {
+					        	e.preventDefault();
+					        },
+					        move: function(e) {
+					        	e.preventDefault();    
+					        },
+					        moveEnd: function(e) {
+					        	e.preventDefault();  
+					        },
+					        add: function(e) {
+					        	e.preventDefault();
+					        },
+					        save: function(e) {
+					        	e.preventDefault();
+					        },*/
+					       editable: false,
 						   views: [
 							   { type: "week", selected: true }
 						   ],
@@ -70,19 +94,19 @@
 								   read: {
 									   url: "viewTimeTable",
 									   dataType: "json"
-								   },
+								   },/*
 								   update: {
-									   url: "updateTimeTable",
+									   url: "viewTimeTable",
 									   dataType: "json"
 								   },
 								   create: {
-									   url: "data/data.json",
+									   url: "viewTimeTable",
 									   dataType: "json"
 								   },
 								   destroy: {
-									   url: "data/data.json",
+									   url: "viewTimeTable",
 									   dataType: "json"
-								   },
+								   },*/
 								   parameterMap: function(options, operation) {
 									   if (operation !== "read" && options.models) {
 										   return {models: kendo.stringify(options.models)};
@@ -104,7 +128,8 @@
 										   recurrenceRule: { from: "RecurrenceRule" },
 										   recurrenceException: { from: "RecurrenceException" },
 										   ownerId: { from: "OwnerID", defaultValue: 1 },
-										   isAllDay: { type: "boolean", from: "IsAllDay" }
+										   isAllDay: { type: "boolean", from: "IsAllDay" },
+										   isClass: { type: "boolean", from: "IsClass" }
 									   }
 								   }
 							   },
