@@ -5,19 +5,20 @@ import javax.servlet.http.*;
 import java.io.*;  
 import java.sql.*;
 import java.time.format.DateTimeFormatterBuilder;
+import java.util.ArrayList;
 
 public class ClassController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	DatabaseConnect dc;
 
 
 	public ClassController() {
 		super();
+		dc = new DatabaseConnect();
 
 	}
 
 	public void insertTable(String name, String teacher, String location, String credit, String dept) {
-		DatabaseConnect dc = new DatabaseConnect();
-
 		String insertdbSQL = "INSERT INTO class(id, name, teacherID, location, credit, dept)"
 				+ "VALUE(NULL, '" + name + "', '" + teacher + "', '" + location + "', '" + credit + "', '" + dept + "')";
 		dc.execute(insertdbSQL);

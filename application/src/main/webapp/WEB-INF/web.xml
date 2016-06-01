@@ -45,6 +45,16 @@
     <servlet-class>application.ClassForm</servlet-class>
   </servlet>
   <servlet>
+    <display-name>editClassTime</display-name>
+    <servlet-name>editClassTime</servlet-name>
+    <servlet-class>application.EditClassTime</servlet-class>
+  </servlet>
+  <servlet>
+  	<display-name>updateTime</display-name>
+  	<servlet-name>updateTime</servlet-name>
+  	<servlet-class>application.UpdateTime</servlet-class>
+  </servlet>
+  <servlet>
     <display-name>editTimeTable</display-name>
     <servlet-name>editTimeTable</servlet-name>
     <servlet-class>application.EditTimeTable</servlet-class>
@@ -78,6 +88,14 @@
   <servlet-mapping>
     <servlet-name>classForm</servlet-name>
     <url-pattern>/classForm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>editClassTime</servlet-name>
+    <url-pattern>/editClassTime</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>updateTime</servlet-name>
+    <url-pattern>/updateTime</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>editTimeTable</servlet-name>

@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DatabaseConnect {
 	private Connection con = null;
@@ -36,6 +39,57 @@ public class DatabaseConnect {
     	} finally { 
     		Close(); 
     	} 
+	}
+	
+	public ArrayList<Map<String, Object>> queryClassTime() {
+		ArrayList<Map<String, Object>> returnList = new ArrayList<>();
+		final String sql = "SELECT *"
+						 + "FROM time_reference;";
+		try {
+			stat = con.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			while(rs.next()) {
+	            Map<String,Object> temp = new HashMap<String,Object>();
+	            temp.put("time_id", rs.getString("time_id"));
+	            temp.put("week", rs.getString("week"));
+	            temp.put("section", rs.getString("section"));
+	            temp.put("start_time", rs.getString("start_time"));
+	            temp.put("end_time", rs.getString("end_time"));
+	            returnList.add(temp);
+	        }
+    	} catch(SQLException e) { 
+    		System.out.println("SQL :" + sql);
+    		System.out.println("InsertDB Exception :" + e.toString()); 
+    	} finally { 
+    		Close(); 
+    	}
+		
+		return returnList;
+	}
+	
+	public ArrayList<Map<String, Object>> queryClassInfo() {
+		ArrayList<Map<String, Object>> returnList = new ArrayList<>();
+		final String sql = "SELECT id, name "
+						 + "FROM class;";
+		try {
+			stat = con.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			while(rs.next()) {
+	            Map<String,Object> temp = new HashMap<String,Object>();
+	            temp.put("id", rs.getString("id"));
+	            temp.put("name", rs.getString("name"));
+	            returnList.add(temp);
+	        }
+    	} catch(SQLException e) { 
+    		System.out.println("SQL :" + sql);
+    		System.out.println("InsertDB Exception :" + e.toString()); 
+    	} finally { 
+    		Close(); 
+    	}
+		
+		return returnList;
 	}
 	
 	// Close DB Connect
