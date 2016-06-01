@@ -14,23 +14,23 @@ public class ClassController extends HttpServlet {
 
     public ClassController() {
     	super();
-		try { 
-		    Class.forName("com.mysql.jdbc.Driver"); 
-			con = DriverManager.getConnection( 
-			"jdbc:mysql://140.134.26.84:3308/tomcat?useUnicode=true&characterEncoding=utf-8", 
-			"spm", "SPMtomcat105");      
-	 	} catch(ClassNotFoundException e) { 
-		    System.out.println("DriverClassNotFound :" + e.toString()); 
-		} catch(SQLException x) { 
-			System.out.println("Exception :" + x.toString()); 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+			"jdbc:mysql://140.134.26.84:3308/tomcat?useUnicode=true&characterEncoding=utf-8",
+			"spm", "SPMtomcat105");
+		} catch(ClassNotFoundException e) {
+				System.out.println("DriverClassNotFound :" + e.toString());
+		} catch(SQLException x) {
+			System.out.println("Exception :" + x.toString());
 		}
     }
 
     public void insertTable(String name, String teacher, String location, String credit, String dept) {
     	String insertdbSQL = "INSERT INTO class(id, name, teacherID, location, credit, dept)"
     					   + "VALUE(NULL, ?, ?, ?, ?, ?)"; 
-    	try { 
-	        pst = con.prepareStatement(insertdbSQL); 
+    	try {
+	        pst = con.prepareStatement(insertdbSQL);
 	        // setSting -> set '?' in insertdbSQL
 	        pst.setString(1, name);
 	        pst.setString(2, teacher);
