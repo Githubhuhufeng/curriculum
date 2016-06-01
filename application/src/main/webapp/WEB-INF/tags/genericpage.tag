@@ -64,7 +64,7 @@
                 {
                     text: "課程",
                     items: [
-						{ text: "新增開課老師", url:"/application/teachers.jsp" },
+						{ text: "新增開課老師", url:"/application/Teachers.jsp" },
                         { text: "新增課程", url:"/application/classForm" },
                         { text: "開設課程列表", url:"/application/classList" }
                     ]
