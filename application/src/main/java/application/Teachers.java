@@ -100,6 +100,6 @@ public class Teachers extends HttpServlet {
 
 		test.insertTable(id, name,email); 
 		System.out.println("inserts!!");     
-		response.sendRedirect("classForm.jsp");
+		response.sendRedirect("classList");
 	}
 }
